@@ -1,13 +1,5 @@
 {
-    "routes": [
-      {
-        "routePath": "/*",
-        "mountPath": "/*",
-        "method": "",
-        "module": [
-          "index.js:onRequest"
-        ]
-      }
-    ],
-    "baseURL": "/"
-  }
+    "version": 1,
+    "include": ["/*"],
+    "exclude": []
+ }
