@@ -10,6 +10,7 @@ export async function onRequestGet(context) {
       } = context;
     const { pathname } = new URL(request.url);
     const siteName = pathname.split('/').pop();
+    console.log(siteName)
     const idValue = await env.KV.get(siteName);
     try {
         if (idValue) {
