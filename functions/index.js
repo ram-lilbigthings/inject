@@ -1,4 +1,3 @@
-const siteName = window.location.pathname.substr(1);
 
 export async function onRequest(context) {
     const {
@@ -9,6 +8,7 @@ export async function onRequest(context) {
         next, // used for middleware or to fetch assets
         data, // arbitrary space for passing data between middlewares
       } = context;
+    const siteName = context.request.url.substr(1);
     const idValue = await context.env.KV.get(siteName);
     try {
         if (idValue) {
