@@ -18,7 +18,7 @@ export async function onRequest(context) {
       if (idValue) {
         const scriptCode = '<script id="' + idValue + '"></script>';
         const response = new Response(scriptCode, {
-          ,
+          
         });
         return response;
       } else {
