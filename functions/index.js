@@ -1,5 +1,5 @@
 
-export async function onRequest(context) {
+export async function onRequestGet(context) {
     const {
         request, // same as existing Worker API
         env, // same as existing Worker API
