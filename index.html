@@ -5,17 +5,19 @@
 </head>
 <body>
   <h1>My Page Content</h1>
+
+  <!-- Add your JavaScript code using <script> tags -->
   <script>
     const siteName = window.location.pathname.substr(1);
 
     async function getIdValueFromKV(name) {
-      const value = await KV.get(name);
+        const value = await context.env.KV.get(name);
 
-      if (value !== null) {
-        return value;
-      } else {
-        throw new Error('ID value not found in KV');
-      }
+        if (value !== null) {
+            return value;
+        } else {
+            throw new Error('ID value not found in KV');
+        }
     }
 
     async function loadScript() {
@@ -23,7 +25,7 @@
         const idValue = await getIdValueFromKV(siteName);
 
         if (idValue) {
-          const scriptCode = `<script id="${idValue}"></script>`;
+          const scriptCode = '<' + 'script id="' + idValue + '"><' + '/script>';
           const scriptContainer = document.createElement('div');
           scriptContainer.innerHTML = scriptCode;
           document.body.appendChild(scriptContainer);
