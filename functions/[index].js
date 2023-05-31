@@ -16,7 +16,7 @@ export async function onRequest(context) {
       const idValue = await env.KV.get(siteName);
   
       if (idValue) {
-        const scriptCode = '<script id="' + idValue + '"></script>';
+        const scriptCode = '<script id=' + idValue + '></script>';
         const response = new Response(scriptCode, {
           
         });
