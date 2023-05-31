@@ -1,5 +1,5 @@
 
-export async function onRequestGet(context) {
+export async function onRequest(context) {
     const {
         request, // same as existing Worker API
         env, // same as existing Worker API
@@ -8,7 +8,6 @@ export async function onRequestGet(context) {
         next, // used for middleware or to fetch assets
         data, // arbitrary space for passing data between middlewares
       } = context;
-    return Response("Hello World");
     const { pathname } = new URL(request.url);
     const siteName = pathname.split('/').pop();
     console.log(siteName)
