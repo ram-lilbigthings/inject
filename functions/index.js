@@ -14,7 +14,7 @@ export async function onRequest(context) {
   
     try {
       const idValue = await env.KV.get(siteName);
-      
+  
       if (idValue) {
         const scriptCode = '<script id="' + idValue + '"></script>';
         const response = new Response(scriptCode, {
@@ -23,11 +23,11 @@ export async function onRequest(context) {
         return response;
       } else {
         console.log('ID value not found');
-        return new Response('ID value not found');
+        return new Response('ID value not found', { status: 404 });
       }
     } catch (error) {
       console.error(error);
-      return new Response('Error occurred');
+      return new Response('Error occurred', { status: 500 });
     }
   }
   
