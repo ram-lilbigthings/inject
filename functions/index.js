@@ -10,7 +10,7 @@ export async function onRequestGet(context) {
       } = context;
     const { pathname } = new URL(request.url);
     const siteName = pathname.split('/').pop();
-    const idValue = await context.env.KV.get(siteName);
+    const idValue = await env.KV.get(siteName);
     try {
         if (idValue) {
             const scriptCode = '<script id="' + idValue + '"></script>';
