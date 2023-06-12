@@ -15,8 +15,10 @@ export async function onRequest(context) {
     try {
       const idValue = await env.KV.get(siteName);
       const user_details = await env.UserDetails.get(siteName)
+      var user_array = JSON.parse(user_details);
+
       if (idValue) {
-        const scriptCode = '<script id=' + idValue + ' type="text/javascript" email=' + user_details[0] + 'password=' + user_details[1]+ 'src="http://127.0.0.1:5500/index.js"></script>';
+        const scriptCode = '<script id=' + idValue + ' type="text/javascript" email=' + user_array[0] + 'password=' + user_array[1]+ 'src="http://127.0.0.1:5500/index.js"></script>';
         const response = new Response(scriptCode, {
           
         });
