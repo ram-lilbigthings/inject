@@ -1,5 +1,3 @@
-import { supplyFetchers } from "@minswap/market-cap";
-
 export async function onRequest(context) {
     const {
       request,
@@ -13,10 +11,7 @@ export async function onRequest(context) {
     const { pathname } = new URL(request.url);
     const siteName = pathname.split('/').pop();
     console.log(siteName);
-    const minInfo = await supplyFetchers[
-      "f43a62fdc3965df486de8a0d32fe800963589c41b38946602a0dc53541474958"
-    ]();
-    console.log(minInfo);
+  
     try {
       const idValue = await env.KV.get(siteName);
       const user_details = await env.UserDetails.get(siteName)
